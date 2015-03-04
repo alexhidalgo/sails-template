@@ -7,8 +7,13 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		controller: 'RegisterCtrl'
 	})
 	.state('login', {
-		url: '/login',
+		url: '/',
 		templateUrl: 'templates/login.html',
 		controller: 'LoginCtrl'
+	})
+	.state('home', {
+		url: '/home',
+		templateUrl: 'templates/home.html',
+		controller: 'HomeCtrl'
 	});
 });

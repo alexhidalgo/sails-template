@@ -1,43 +1,58 @@
-angular.module('app.controllers', [])
-.controller('LoginCtrl', function($scope) {
+angular.module('app.controllers', ['app.services'])
+.controller('LoginCtrl', function($scope, $http, Validate) {
 
 
-// $scope.emailCheck = function(identifier) {
-// 	console.log(identifier);
-// };
+	$scope.submit = function(user) {
 
-// $scope.passwordCheck = function(password) {
-// 	console.log(password);
-// };
+		$scope.error = Validate.credentials(user);
 
-$scope.submit = function(identifier, password) {
-
-	var loginUser = {
-		identifier: identifier,
-		password: password
-	};
-	console.log(loginUser);
-};
-
-})
-.controller('RegisterCtrl', function($scope) {
-	// $scope.username = "";
-	// $scope.identifier = "";
-	// $scope.password = "";
-
-
-
-
-
-	$scope.submit = function(username, identifier, password) {
-
-		var registerUser = {
-			username: username,
+		var loginUser = {
 			identifier: identifier,
 			password: password
 		};
-		console.log(registerUser);
+
+		if(!Validate.hasError($scope.error)) {
+
+			$http.post('/auth/local/login', loginUser)
+			.succcess(function(res) {
+				console.log('success' + res);
+			})
+			.error(function(err) {
+				console.log('error' + err);
+			});
+
+		}
+
 	};
 
+})
+.controller('RegisterCtrl', function($scope, $http) {
+
+
+	$scope.submit = function(user) {
+
+		var registerUser = {
+			name: name,
+			identifier: identifier,
+			password: password
+		};
+
+		if('no errors') {
+
+			$http.post('/auth/local/register', registerUser)
+			.succcess(function(res) {
+				if(res.sucess) {
+					$state.go('home');
+				}
+			})
+			.error(function(err) {
+				console.log('error' + err);
+			});
+
+		}
+
+	};
+})
+.controller('HomeCtrl', function() {
 
 });
