@@ -1,0 +1,25 @@
+<div ng-controller='LoginCtrl'>
+	<h1>Login</h1>
+	<form novalidate name="loginForm">
+
+		<input required type="text" name="inputIdentifier" placeholder="email" ng-model="identifier">
+		<span class="alert"
+		ng-show="submitted && loginForm.inputIdentifier.$invalid ||
+		loginForm.inputIdentifier.$invalid && loginForm.inputIdentifier.$dirty">
+		Email cannot be left empty</span>
+
+		<span class="alert" ng-show="identifier.indexOf('@') === -1 && loginForm.inputIdentifier.$dirty">Email must include the @ symbol</span>
+
+		<input required type="text" name="inputPassword" placeholder="password" ng-model="password">
+		<span class="alert"
+		ng-show="submitted && loginForm.inputPassword.$invalid
+		||loginForm.inputPassword.$invalid && loginForm.inputPassword.$dirty">
+		Password cannot be left empty</span>
+
+		<button ng-click="submit(identifier, password);submitted=true" type="submit">Submit</button>
+
+	</form>
+
+	<a ui-sref="register">Don't have an account yet? SignUp!</a>
+
+</div>
