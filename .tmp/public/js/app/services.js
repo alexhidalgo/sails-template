@@ -1,4 +1,4 @@
-angular.services('app.services', [])
+angular.module('app.services', [])
 	.factory('Validate', function() {
 		return { credentials: function(credentials) {
 
