@@ -3,7 +3,7 @@
 
 	<form novalidate name="loginForm" method="post">
 
-		<input required type="text" name="inputIdentifier" placeholder="username" ng-model="user.name">
+		<input required type="text" name="inputIdentifier" placeholder="username" ng-model="credentials.name">
 
 		<span class="alert"
 		ng-show="error">
@@ -11,16 +11,16 @@
 
 
 
-		<input required type="text" name="input" placeholder="email" ng-model="user.identifier">
+		<input required type="text" name="input" placeholder="email" ng-model="credentials.identifier">
 		<span class="alert"
 		ng-show="error">
 		Email cannot be left empty</span>
 		<span class="alert" ng-show="">Email must include the @ symbol</span>
 
-		<input required type="text" name="inputPassword" placeholder="password" ng-model="user.password">
+		<input required type="text" name="inputPassword" placeholder="password" ng-model="credentials.password">
 		<span class="alert" ng-show="error">Password cannot be left empty</span>
 
-		<button ng-click="submit(user)" type="submit">Submit</button>
+		<button ng-click="submit(credentials)" type="submit">Submit</button>
 	</form>
 
 	<a ui-sref="login">Already have an account? Login!</a>

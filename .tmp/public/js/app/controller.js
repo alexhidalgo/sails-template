@@ -6,9 +6,14 @@ angular.module('app.controllers', ['app.services'])
 
 		$scope.error = Validate.credentials(user);
 
-		var loginUser = {
-			identifier: identifier,
-			password: password
+		$scope.error = {
+			identifier: '',
+			password: ''
+		};
+
+		$scope.credentials = {
+			identifier: '',
+			password: ''
 		};
 
 		if(!Validate.hasError($scope.error)) {
