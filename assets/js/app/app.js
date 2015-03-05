@@ -15,5 +15,15 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		url: '/home',
 		templateUrl: 'templates/home.html',
 		controller: 'HomeCtrl'
+	})
+	.state('assignments', {
+		url: '/assignments',
+		templateUrl: 'templates/assignments.html',
+		controller: 'AssignmentsCtrl'
+	})
+	.state('submission', {
+		url: '/submission',
+		templateUrl: 'templates/submission.html',
+		controller: 'SubmissionCtrl'
 	});
 });

@@ -1,0 +1,13 @@
+<div ng-controller="AssignmentsCtrl">
+
+	<form action="">
+		<label for="">Name</label>
+		<input required ng-model="assignment.name" type="text">
+		<label for="">Due Date</label>
+		<input required ng-model="assignment.dueAt" type="timedate">
+		<label for="">Url</label>
+		<input required ng-model="assignment.url" type="text">
+		<button ng-click="submit(assignment)" type="submit">Submit</button>
+	</form>
+
+</div>

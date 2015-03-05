@@ -34,8 +34,4 @@ form {
 .login-link {
   display: block; }
 
-form .ng-dirty.ng-invalid {
-  border-bottom: 3px solid red;
-  color: white; }
-
 /*# sourceMappingURL=importer.css.map */

@@ -2,7 +2,7 @@
 	<h1>Login</h1>
 	<form novalidate name="loginForm" method="post">
 
-		<input required type="text" name="inputIdentifier" placeholder="email" ng-model="identifier">
+		<input required type="text" name="inputIdentifier" placeholder="email" ng-model="login.identifier">
 		<span class="alert"
 		ng-show="submitted && loginForm.inputIdentifier.$invalid ||
 		loginForm.inputIdentifier.$invalid && loginForm.inputIdentifier.$dirty">
@@ -10,13 +10,13 @@
 
 		<span class="alert" ng-show="identifier.indexOf('@') === -1 && loginForm.inputIdentifier.$dirty">Email must include the @ symbol</span>
 
-		<input required type="text" name="inputPassword" placeholder="password" ng-model="password">
+		<input required type="text" name="inputPassword" placeholder="password" ng-model="login.password">
 		<span class="alert"
 		ng-show="submitted && loginForm.inputPassword.$invalid
 		||loginForm.inputPassword.$invalid && loginForm.inputPassword.$dirty">
 		Password cannot be left empty</span>
 
-		<button ng-click="submit(identifier, password);submitted=true" type="submit">Submit</button>
+		<button ng-click="submit(login);submitted=true" type="submit">Submit</button>
 
 	</form>
 
